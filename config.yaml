@@ -109,9 +109,9 @@ params:
     content: ""
     image: /index/me_bw.jpg
     button:
-      enable: False
+      enable: true
       name: "Resume"
-      url: "#"
+      url: "https://forrestfwilliams.com/forrestwilliams_resume.pdf"
       download: true
     socialLinks:
       fontAwesomeIcons:
