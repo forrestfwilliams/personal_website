@@ -109,7 +109,7 @@ params:
     content: ""
     image: /index/me_bw.jpg
     button:
-      enable: true
+      enable: False
       name: "Resume"
       url: "#"
       download: true
