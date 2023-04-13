@@ -16,7 +16,7 @@ I've been working on a new project that should make this much easier though!
 ## Enter ZRAN
 I'm not the first person to think about this problem, in fact Mark Adler the creator of the DEFLATE algorithm and the popular Zlib package has already come up with a solution. He developed a utility called ZRAN that can provide pseudo-random reads for DEFLATE-compressed data. It turns out that DEFLATE-compressed data is compressed in discrete 10-100 Kb blocks, and if the Zlib package is provided with the right information, it can start decompressing from any of these block boundaries!
 
-![ZRAN diagram](images/zran.svg)
+![ZRAN diagram](/zran.svg)
 
 In practice, ZRAN decompresses the data once, then uses information gained while decompressing to create a sidecar index file that contains "bookmarks" into the compressed. You can then use the "bookmarks" contained within the index file to start reading from any block boundary on subsequent reads.
 
