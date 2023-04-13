@@ -5,7 +5,7 @@ theme: hugo-profile
 
 Paginate: 3
 disqusShortname: forrestfwilliams
-googleAnalytics: G-FRMGYFYWXT 
+googleAnalytics: G-FRMGYFYWXT
 
 markup:
   goldmark:
@@ -49,7 +49,7 @@ params:
   description: Forrest Williams
   # staticPath: ""  # The path to serve the static files from
   # favicon: "/fav.png"
-  favicon: /satellite-dish-solid.svg 
+  favicon: /satellite-dish-solid.svg
 
   # Whether to serve bootstrap css and js files from CDN or not. Can be set to true, "css" or "js" to choose between
   # serving both, only the css, or only the js files through the CDN. Any other value will make so that CDN is not used.
@@ -116,11 +116,11 @@ params:
     socialLinks:
       fontAwesomeIcons:
         - icon: fab fa-github
-          url: https://github.com/forrestfwilliams 
+          url: https://github.com/forrestfwilliams
         - icon: fab fa-linkedin
           url: https://www.linkedin.com/in/forrest-williams-geospatial/
         - icon: fab fa-twitter
-          url: https://twitter.com/RS_Forrest 
+          url: https://twitter.com/RS_Forrest
       # customIcons:
       #   - icon: /fav.png
       #     url: "https://example.com"
@@ -131,16 +131,16 @@ params:
     title: "About Me"
     image: "/index/me_bw.jpg"
     content: |-
-      I am a research software engineer with a passion for planet-scale earth monitoring. I have PhD in Geology, as well as a background in SAR remote sensing, Python scientific software development, and cloud solutions.
+      I am a research software engineer with a passion for planet-scale earth monitoring. I have PhD in Geology, as well as a background in SAR remote sensing, Python scientific software development, and cloud-computing infrastructure.
 
-      I am currently work at the [Alaska Satellite Facility](https://asf.alaska.edu), where I help create new SAR/InSAR products and services.
+      I currently work at the [Alaska Satellite Facility](https://asf.alaska.edu), where I help create new SAR/InSAR products, and lead SAR trainings for the scientific community.
     skills:
       enable: true
-      title: "Here are a few technologies I've been working with recently:"
+      title: "Here are a few of technologies I've been working with recently:"
       items:
         - "Python"
-        - "AWS serverless stack"
-        - "R"
+        - "AWS's serverless stack"
+        - "Cython"
         - "Jupyter Notebooks"
 
   # Experience
@@ -157,9 +157,24 @@ params:
         featuredLink:
           enable: true
           name: "View sample project"
-          url: "https://github.com/ASFHyP3/DockerizedTopsApp/pull/1"
-        content: "I am currently working as a research software engineer at the Alaska Satellite Facility. I work within a dedicated software engineering team to design new SAR/InSAR products and services."
-
+          url: "https://github.com/asfhyp3/hyp3-isce2"
+        content: "I am currently working as a research software engineer at the Alaska Satellite Facility. I work within a dedicated software engineering team to design new SAR/InSAR products and services. This includes:
+          \n- Leading the development of ASF's burst InSAR processing workflows
+          \n- Developing cloud infrastructure and processing workflows for SAR imagery products
+          \n- Leading tutorials and presentation for the scientific community on SAR data usage
+          \n- Writing and participating in global-scale earth monitoring NASA grant projects
+          "
+      - job: "SAR and InSAR Intern"
+        company: "JPL"
+        companyUrl: "https://www.jpl.nasa.gov"
+        date: "May 2019 - April 2022"
+        info:
+          enable: False
+        content: "While I was a graduate student, I interned remotely with NASA Jet Propulsion Laboratory (JPL) team. This work included:
+          \n- Used open-source InSAR tools and UAVSAR data to track fault and landslide movement across California
+          \n- Developed UAVSAR time-series processing workflows that were used as the basis for NISAR validation product creation
+          \n- Explore multi-stage InSAR unwrapping algorithms using SNAPHU
+          "
       - job: "Remote Sensing Data Scientist"
         company: "ISU"
         companyUrl: "https://www.iastate.edu"
@@ -170,17 +185,10 @@ params:
           url: "https://www.cals.iastate.edu/inrc/research-helps-develop-remote-sensing-tool-assess-conservation-implementation"
         info:
           enable: False
-        content: |-
-          While pursuing my PhD, I worked part-time as a remote sensing data scientists at Iowa State University. While there, I built and validated a machine learning model to facilitate the prediction of U.S. crop residue cover within Google Earth Engine
-
-      - job: "SAR and InSAR Intern"
-        company: "JPL"
-        companyUrl: "https://www.jpl.nasa.gov"
-        date: "May 2019 - April 2022"
-        info:
-          enable: False
-        content: |-
-         Interned remotely with NASA Jet Propulsion Laboratory (JPL) team and used open-source InSAR tools and UAVSAR data to track fault and landslide movement across California 
+        content: "While pursuing my PhD, I worked part-time as a remote sensing data scientist at Iowa State University. This work included:
+          \n- Built a machine learning model to facilitate the prediction of U.S. crop residue cover
+          \n- Designed image processing workflows within Google Earth Engine
+          "
   # Education
   education:
     enable: true
@@ -193,7 +201,7 @@ params:
           url: "https://www.massey.ac.nz"
         date: "2019 - 2022"
         content: |-
-          - Using Python’s geospatial libraries and Sentinel-1 SAR data to monitor natural hazards
+          - Used Python’s geospatial libraries and Sentinel-1 SAR data to monitor natural hazards
           - Utilized machine learning models to analyze patterns in landslide occurrence
           - Contributor to open-source SAR data analysis platforms (ISCE2 and MintPy)
       - title: "Masters of Science in Environmental Science"
@@ -297,4 +305,4 @@ params:
     socialNetworks:
       github: https://github.com/forrestfwilliams
       linkedin: https://www.linkedin.com/in/forrest-williams-geospatial/
-      twitter: https://twitter.com/RS_Forrest 
+      twitter: https://twitter.com/RS_Forrest
