@@ -128,7 +128,7 @@ params:
     button:
       enable: true
       name: "Resume"
-      url: "https://forrestfwilliams.com/forrestwilliams_resume.pdf"
+      url: "/forrestwilliams_resume.pdf"
       download: true
       newPage: false
     socialLinks:
