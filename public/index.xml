@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo Profile</title>
+    <link>https://forrestfwilliams.com/</link>
+    <description>Recent content on Hugo Profile</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 Apr 2023 09:30:02 -0500</lastBuildDate><atom:link href="https://forrestfwilliams.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ZRAN</title>
+      <link>https://forrestfwilliams.com/blogs/zran/</link>
+      <pubDate>Thu, 13 Apr 2023 09:30:02 -0500</pubDate>
+      
+      <guid>https://forrestfwilliams.com/blogs/zran/</guid>
+      <description>The Problem Like most forms of data analysis, remote sensing has traditionally operated in a file-first paradigm. In this setup, data is packaged in discrete files or zip archives and these are downloaded/decompressed to a local environment before you begin analyzing the data.
+However, with the growth in dataset sizes, the move to cloud-based computing, and new tools like Xarray, the industry is moving towards a dataset-first paradigm. In a dataset-first paradigm we think about grabbing the specific data we want from a global dataset instead of downloading discrete files that contain portions of the dataset.</description>
+    </item>
+    
+    <item>
+      <title>Hello World!</title>
+      <link>https://forrestfwilliams.com/blogs/hello_world/</link>
+      <pubDate>Wed, 12 Apr 2023 09:30:02 -0500</pubDate>
+      
+      <guid>https://forrestfwilliams.com/blogs/hello_world/</guid>
+      <description>Welcome to my blog! My name is Forrest Williams, and I’m excited to introduce myself to you.
+I recently graduated from a New Zealand university with a PhD in geology where I studied landslides, but I now find myself working in the fascinating (and confusing) world of synthetic aperture radar (SAR) remote sensing.
+I work at the Alaska Satellite Facility (NASA’s SAR data center), where I am both a scientist and a software developer.</description>
+    </item>
+    
+  </channel>
+</rss>

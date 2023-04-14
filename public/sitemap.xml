@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://forrestfwilliams.com/blogs/</loc>
+    <lastmod>2023-04-13T09:30:02-05:00</lastmod>
+  </url><url>
+    <loc>https://forrestfwilliams.com/</loc>
+    <lastmod>2023-04-13T09:30:02-05:00</lastmod>
+  </url><url>
+    <loc>https://forrestfwilliams.com/blogs/zran/</loc>
+    <lastmod>2023-04-13T09:30:02-05:00</lastmod>
+  </url><url>
+    <loc>https://forrestfwilliams.com/blogs/hello_world/</loc>
+    <lastmod>2023-04-12T09:30:02-05:00</lastmod>
+  </url><url>
+    <loc>https://forrestfwilliams.com/categories/</loc>
+  </url><url>
+    <loc>https://forrestfwilliams.com/tags/</loc>
+  </url>
+</urlset>
