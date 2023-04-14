@@ -14,7 +14,7 @@ outputs:
 
 Paginate: 3
 enableRobotsTXT: true
-# disqusShortname: forrestfwilliams
+disqusShortname: forrestfwilliams
 # googleAnalytics: G-FRMGYFYWXT
 
 markup:
