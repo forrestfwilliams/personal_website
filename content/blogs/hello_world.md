@@ -1,6 +1,10 @@
 ---
 title: "Hello World!"
 date: 2023-04-12T09:30:02-05:00
+draft: false
+author: "Forrest Williams"
+description: "A little about me"
+toc: 
 ---
 Welcome to my blog! My name is Forrest Williams, and I’m excited to introduce myself to you.
 

@@ -1,6 +1,10 @@
 ---
 title: "ZRAN"
 date: 2023-04-13T09:30:02-05:00
+draft: false
+author: "Forrest Williams"
+description: "Random-access reads for deflate data!"
+toc: 
 ---
 ## The Problem
 Like most forms of data analysis, remote sensing has traditionally operated in a file-first paradigm. In this setup, data is packaged in discrete files or zip archives and these are downloaded/decompressed to a local environment before you begin analyzing the data. 
