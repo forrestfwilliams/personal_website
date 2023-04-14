@@ -1,11 +1,21 @@
-baseURL: "https://hugo-profile.netlify.app"
+baseURL: "https://forrestfwilliams.com"
 languageCode: "en-us"
 title: "Forrest Williams"
 theme: hugo-profile
 
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+    - "JSON"
+  page:
+    - "HTML"
+    - "RSS"
+
 Paginate: 3
-disqusShortname: gurusabarish
-googleAnalytics: G-DWJJVE27WD
+enableRobotsTXT: true
+# disqusShortname: forrestfwilliams
+# googleAnalytics: G-FRMGYFYWXT
 
 markup:
   goldmark:
@@ -19,14 +29,12 @@ Menus:
       title: Blog posts
       url: /blogs
       weight: 1
-
     # - identifier: gallery
     #   name: Gallery
     #   title: Blog posts
     #   url: /gallery
     #   weight: 2
-
-    # #Dropdown menu
+    #Dropdown menu
     # - identifier: dropdown
     #   title: Example dropdown menu
     #   name: Dropdown
@@ -48,13 +56,17 @@ params:
   title: ""
   description: Forrest Williams
   # staticPath: ""  # The path to serve the static files from
-  # favicon: "/fav.png"
-  favicon: /satellite-dish-solid.svg 
+  favicon: "/satellite-dish-solid.svg"
 
   # Whether to serve bootstrap css and js files from CDN or not. Can be set to true, "css" or "js" to choose between
   # serving both, only the css, or only the js files through the CDN. Any other value will make so that CDN is not used.
   # Note the lack of "" in true, it should be of boolean type.
   useBootstrapCDN: false
+
+  # If you want to load dynamically responsive images from Cloudinary
+  # This requires your images to be uploaded + hosted on Cloudinary
+  # Uncomment and change YOUR_CLOUD_NAME to the Cloud Name in your Cloudinary console
+  # cloudinary_cloud_name: "YOUR_CLOUD_NAME"
 
   # Whether the fade animations on the home page will be enabled
   animate: true
@@ -63,11 +75,11 @@ params:
     disableThemeToggle: true
     # defaultTheme: "light" # dark
 
-  # font:
-  #   fontSize: 1.5rem # default: 1rem
-  #   fontWeight: 500 # default: 400
-  #   lineHeight: 1 # default: 1.5
-  #   textAlign: right # default: left
+  font:
+    fontSize: 1rem # default: 1rem
+    fontWeight: 400 # default: 400
+    lineHeight: 1.5 # default: 1.5
+    textAlign: left # default: left
 
   # color preference
   # color:
@@ -89,16 +101,18 @@ params:
   # If you want to customize the menu, you can change it here
   navbar:
     align: ms-auto # Left: ms-auto | center: mx-auto | right: me-auto | Default: ms-auto
-  #   brandLogo: "/logo.png" # Logo for the brand | default is the favicon variable
-  #   brandName: "Profile" # Brand name for the brand | default is the title variable
-
-  #   menus:
-  #     disableAbout: true
-  #     disableExperience: true
-  #     disableEducation: true
-  #     disableProjects: true
-  #     disableAchievements: true
-  #     disableContact: true
+    # brandLogo: "/logo.png" # Logo for the brand | default is the favicon variable
+    # showBrandLogo: false # Show brand logo in nav bar | default is true
+    # brandName: "Hugo Profile" # Brand name for the brand | default is the title variable
+    disableSearch: true
+    # searchPlaceholder: "Search"
+    # menus:
+    #   disableAbout: false
+    #   disableExperience: false
+    #   disableEducation: false
+    #   disableProjects: false
+    #   disableAchievements: false
+    #   disableContact: false
 
   # Hero
   hero:
@@ -107,20 +121,24 @@ params:
     title: "Forrest"
     subtitle: "I use SAR satellites to monitor the earth"
     content: ""
-    image: /index/me_bw.jpg
+    image: /index/me_bw.jpg 
+    bottomImage:
+      enable: true
+    # roundImage: true # Make hero image circular | default false
     button:
       enable: true
       name: "Resume"
       url: "https://forrestfwilliams.com/forrestwilliams_resume.pdf"
       download: true
+      newPage: false
     socialLinks:
       fontAwesomeIcons:
         - icon: fab fa-github
-          url: https://github.com/forrestfwilliams 
+          url: https://github.com/forrestfwilliams
         - icon: fab fa-linkedin
           url: https://www.linkedin.com/in/forrest-williams-geospatial/
         - icon: fab fa-twitter
-          url: https://twitter.com/RS_Forrest 
+          url: https://twitter.com/RS_Forrest
       # customIcons:
       #   - icon: /fav.png
       #     url: "https://example.com"
@@ -129,24 +147,24 @@ params:
   about:
     enable: true
     title: "About Me"
-    image: "/index/me_bw.jpg"
+    image: /index/me_bw.jpg
     content: |-
-      I am a research software engineer with a passion for planet-scale earth monitoring. I have PhD in Geology, as well as a background in SAR remote sensing, Python scientific software development, and cloud solutions.
+      I am a research software engineer with a passion for planet-scale earth monitoring. I have PhD in Geology, as well as a background in SAR remote sensing, Python scientific software development, and cloud-computing infrastructure.
 
-      I am currently work at the [Alaska Satellite Facility](https://asf.alaska.edu), where I help create new SAR/InSAR products and services.
+      I currently work at the [Alaska Satellite Facility](https://asf.alaska.edu), where I help create new SAR/InSAR products, and lead SAR trainings for the scientific community.
     skills:
       enable: true
       title: "Here are a few technologies I've been working with recently:"
       items:
         - "Python"
-        - "AWS serverless stack"
-        - "R"
+        - "AWS's serverless stack"
+        - "Cython"
         - "Jupyter Notebooks"
 
   # Experience
   experience:
     enable: true
-    title: "Experience"
+    # title: "Custom Name"
     items:
       - job: "Research Software Developer"
         company: "ASF"
@@ -157,9 +175,24 @@ params:
         featuredLink:
           enable: true
           name: "View sample project"
-          url: "https://github.com/ASFHyP3/DockerizedTopsApp/pull/1"
-        content: "I am currently working as a research software engineer at the Alaska Satellite Facility. I work within a dedicated software engineering team to design new SAR/InSAR products and services."
-
+          url: "https://github.com/asfhyp3/hyp3-isce2"
+        content: "I am currently working as a research software engineer at the Alaska Satellite Facility. I work within a dedicated software engineering team to design new SAR/InSAR products and services. This includes:
+          \n- Leading the development of ASF's burst InSAR processing workflows
+          \n- Developing cloud infrastructure and processing workflows for SAR imagery products
+          \n- Leading tutorials and presentation for the scientific community on SAR data usage
+          \n- Writing and participating in global-scale earth monitoring NASA grant projects
+          "
+      - job: "SAR and InSAR Intern"
+        company: "JPL"
+        companyUrl: "https://www.jpl.nasa.gov"
+        date: "May 2019 - April 2022"
+        info:
+          enable: False
+        content: "While I was a graduate student, I interned remotely with NASA Jet Propulsion Laboratory (JPL) team. This work included:
+          \n- Used open-source InSAR tools and UAVSAR data to track fault and landslide movement across California
+          \n- Developed UAVSAR time-series processing workflows that were used as the basis for NISAR validation product creation
+          \n- Explore multi-stage InSAR unwrapping algorithms using SNAPHU
+          "
       - job: "Remote Sensing Data Scientist"
         company: "ISU"
         companyUrl: "https://www.iastate.edu"
@@ -170,17 +203,10 @@ params:
           url: "https://www.cals.iastate.edu/inrc/research-helps-develop-remote-sensing-tool-assess-conservation-implementation"
         info:
           enable: False
-        content: |-
-          While pursuing my PhD, I worked part-time as a remote sensing data scientists at Iowa State University. While there, I built and validated a machine learning model to facilitate the prediction of U.S. crop residue cover within Google Earth Engine
-
-      - job: "SAR and InSAR Intern"
-        company: "JPL"
-        companyUrl: "https://www.jpl.nasa.gov"
-        date: "May 2019 - April 2022"
-        info:
-          enable: False
-        content: |-
-         Interned remotely with NASA Jet Propulsion Laboratory (JPL) team and used open-source InSAR tools and UAVSAR data to track fault and landslide movement across California 
+        content: "While pursuing my PhD, I worked part-time as a remote sensing data scientist at Iowa State University. This work included:
+          \n- Built a machine learning model to facilitate the prediction of U.S. crop residue cover
+          \n- Designed image processing workflows within Google Earth Engine
+          "
   # Education
   education:
     enable: true
@@ -193,7 +219,7 @@ params:
           url: "https://www.massey.ac.nz"
         date: "2019 - 2022"
         content: |-
-          - Using Python’s geospatial libraries and Sentinel-1 SAR data to monitor natural hazards
+          - Used Python’s geospatial libraries and Sentinel-1 SAR data to monitor natural hazards
           - Utilized machine learning models to analyze patterns in landslide occurrence
           - Contributor to open-source SAR data analysis platforms (ISCE2 and MintPy)
       - title: "Masters of Science in Environmental Science"
@@ -212,6 +238,7 @@ params:
           url: "https://www.carleton.edu"
         date: "2012 - 2016"
         content: |-
+          - Participated in two geology field camps in Italy and New Zealand
           - Recieved an award for outstanding undergraduate research
           - Co-founder of Carleton's running club
 
@@ -245,10 +272,10 @@ params:
         featured:
           name: Demo
           link: https://hugo-profile.netlify.app
-        # badges:
-        #   - "Hugo"
-        #   - "Bootstrap"
-        #   - "Javascript"
+        badges:
+          - "Hugo"
+          - "Bootstrap"
+          - "Javascript"
         links:
           - icon: fa fa-envelope
             url: mailto:?subject=Hugo%20Profile%20Template&body=Check%20it%20out:%20https%3a%2f%2fhugo-profile.netlify.app%2fblog%2fmarkdown-syntax%2f
@@ -263,9 +290,9 @@ params:
         featured:
           name: Demo
           link: https://django-converter.herokuapp.com
-        # badges:
-        #   - "Django"
-        #   - "Bootstrap"
+        badges:
+          - "Django"
+          - "Bootstrap"
         links:
           - icon: fab fa-github
             url: https://github.com/gurusabarish/converter
@@ -276,10 +303,10 @@ params:
         featured:
           name: Demo V2
           link: https://hugo-profile-2.netlify.app
-        # badges:
-        #   - "Hugo"
-        #   - "Bootstrap"
-        #   - "Javascript"
+        badges:
+          - "Hugo"
+          - "Bootstrap"
+          - "Javascript"
         links:
           - icon: fab fa-github
             url: https://github.com/gurusabarish/HugoProfileV2
@@ -291,10 +318,45 @@ params:
     content: My inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!
     email: ffwilliams2@alaska.edu
     btnName: E-Mail me
+    # formspree:
+    #   enable: true # `contact.email` value will be ignored
+    #   formId: abcdefgh # Take it from your form's endpoint, like 'https://formspree.io/f/abcdefgh'
+    #   emailCaption: "Enter your email address"
+    #   messageCaption: "Enter your message here"
 
   footer:
-    recentPosts: true
+    recentPosts:
+      path: "blogs"
+      count: 3
+      title: Recent Posts
+      enable: true
+      disableFeaturedImage: false
     socialNetworks:
       github: https://github.com/forrestfwilliams
       linkedin: https://www.linkedin.com/in/forrest-williams-geospatial/
-      twitter: https://twitter.com/RS_Forrest 
+      twitter: https://twitter.com/RS_Forrest
+
+  # List pages like blogs and posts
+  listPages:
+    disableFeaturedImage: false
+
+  # Single pages like blog and post
+  singlePages:
+    readTime:
+      enable: true
+      content: "min read"
+    scrollprogress:
+      enable: true
+
+  # For translations
+  terms:
+    read: "Read"
+    toc: "Table Of Contents"
+    copyright: "All rights reserved"
+    pageNotFound: "Page not found"
+    emailText: "Check out this site"
+
+  datesFormat:
+    article: "Jan 2, 2006"
+    articleList: "Jan 2, 2006"
+    articleRecent: "Jan 2, 2006"
