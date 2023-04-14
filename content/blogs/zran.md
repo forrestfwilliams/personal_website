@@ -55,4 +55,4 @@ That's it!
 
 While ZRAN is already a powerful tool for working with compressed data, I believe that there is much more that can be done with it. By combining ZRAN with other projects such as STAC and kerchunk, it may be possible to create a zarr-like interface for archival datasets! This would allow us to work with large datasets as if they were small, local files, without having to worry about the underlying complexity of the data storage.
 
-In the meantime, I'm already using the ZRAN python package in my [Sentinel-1 burst extractor project](https://github.com/forrestfwilliams/zran), which demonstrates its potential to be used in a wide range of applications. If you're interested in trying out ZRAN for yourself, you can install from PyPI today!
+In the meantime, I'm already using the ZRAN python package in my [Sentinel-1 burst extractor project](https://github.com/forrestfwilliams/index_safe), which demonstrates its potential to be used in a wide range of applications. If you're interested in trying out ZRAN for yourself, you can install from PyPI today!
