@@ -22,6 +22,8 @@ markup:
     renderer:
       unsafe: true
 
+relativeURLs: true
+
 Menus:
   main:
     - identifier: blog
