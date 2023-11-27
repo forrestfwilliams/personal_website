@@ -28,16 +28,16 @@
 
 
 
-<meta property="og:title" content="ZRAN" />
-<meta property="og:description" content="Random-access reads for deflate data!" />
+<meta property="og:title" content="An InSAR Colorsphere" />
+<meta property="og:description" content="Understanding line-of-sight is hard, let&#39;s make it easier" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://forrestfwilliams.com/blogs/zran/" /><meta property="article:section" content="blogs" />
-<meta property="article:published_time" content="2023-04-13T09:30:02-05:00" />
-<meta property="article:modified_time" content="2023-04-13T09:30:02-05:00" />
+<meta property="og:url" content="https://forrestfwilliams.com/blogs/los/" /><meta property="article:section" content="blogs" />
+<meta property="article:published_time" content="2023-11-26T09:30:02-05:00" />
+<meta property="article:modified_time" content="2023-11-26T09:30:02-05:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="ZRAN"/>
-<meta name="twitter:description" content="Random-access reads for deflate data!"/>
+<meta name="twitter:title" content="An InSAR Colorsphere"/>
+<meta name="twitter:description" content="Understanding line-of-sight is hard, let&#39;s make it easier"/>
 
 
 <link rel="stylesheet" href="../../bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="../../css/header.css" media="all">
@@ -101,14 +101,14 @@
     }
 </style>
 
-<meta name="description" content="Random-access reads for deflate data!">
+<meta name="description" content="Understanding line-of-sight is hard, let&#39;s make it easier">
 <link rel="stylesheet" href="../../css/single.css">
 
 
 <script defer src="../../fontawesome-5/all-5.15.4.js"></script>
 
   <title>
-ZRAN | Forrest Williams
+An InSAR Colorsphere | Forrest Williams
 
   </title>
 </head>
@@ -231,11 +231,11 @@ ZRAN | Forrest Williams
       <div class="col-sm-12 col-md-12 col-lg-9">
         <div class="pr-lg-4">
           <div class="title mb-5">
-            <h1 class="text-center mb-4">ZRAN</h1>
+            <h1 class="text-center mb-4">An InSAR Colorsphere</h1>
             <div class="text-center">
               Forrest Williams 
               <small>|</small>
-              Apr 13, 2023
+              Nov 26, 2023
 
               
               <span id="readingTime">
@@ -246,38 +246,27 @@ ZRAN | Forrest Williams
           </div>
           
           <article class="page-content  p-2">
-          <h2 id="the-problem">The Problem</h2>
-<p>Like most forms of data analysis, remote sensing has traditionally operated in a file-first paradigm. In this setup, data is packaged in discrete files or zip archives and these are downloaded/decompressed to a local environment before you begin analyzing the data.</p>
-<p>However, with the growth in dataset sizes, the move to cloud-based computing, and new tools like <a href="https://docs.xarray.dev/en/stable/index.html">Xarray</a>, the industry is moving towards a dataset-first paradigm. In a dataset-first paradigm we think about grabbing the specific data we want from a global dataset instead of downloading discrete files that contain portions of the dataset. If you want an example of how this is done, go check out the <a href="https://pangeo.io">PANGEO</a> project! A major advantage of this approach is that you can specify an area-of-interest/time-of-interest, and download only the data you <em>actually</em> need - greatly decreasing the amount of data you need to download!</p>
-<p>Unfortunately though, the ways in which many older datasets are packaged makes it difficult to provide dataset-first services for them. The <a href="https://fsspec.github.io/kerchunk/">Kerchunk</a> project is working to overcome these issues, but a major stumbling block we&rsquo;ll need to fix is the limitations on data access that many compression types impose.</p>
-<p>Compression is a key way that we can increase download speeds and reduce data storage costs, but many compression types such as the popular <a href="https://www.rfc-editor.org/rfc/rfc1951">DEFLATE</a> compression used in gzip and zip files <strong>do not support random access reads</strong>. This isn&rsquo;t a problem if you plan to download/decompress the whole data file, but dataset-first access patterns rely on the ability to grab only the data they need from much larger files (i.e., random access reads). Since <em>SO</em> much data is stored in either gzip or zip archives, this severely limits our ability to provide dataset-first access to older data.</p>
-<p>I&rsquo;ve been working on a new project that should make this much easier though!</p>
-<h2 id="enter-zran">Enter ZRAN</h2>
-<p>I&rsquo;m not the first person to think about this problem, in fact Mark Adler the creator of the DEFLATE algorithm and the popular Zlib package has already come up with a solution. He developed a utility called ZRAN that can provide pseudo-random reads for DEFLATE-compressed data. It turns out that DEFLATE-compressed data is compressed in discrete 10-100 Kb blocks, and if the Zlib package is provided with the right information, it can start decompressing from any of these block boundaries!</p>
-<p><img src="../../zran.svg" alt="ZRAN diagram"></p>
-<p>In practice, ZRAN decompresses the data once, then uses information gained while decompressing to create a sidecar index file that contains &ldquo;bookmarks&rdquo; into the compressed. You can then use the &ldquo;bookmarks&rdquo; contained within the index file to start reading from any block boundary on subsequent reads.</p>
-<p>You can find Mark&rsquo;s code in the <a href="https://github.com/madler/zlib/tree/master/examples">examples directory</a> of the Zlib GitHub repository! However, this utility was only available as a C-utility and could not be easily incorporated into dataset-first access projects (e.g., Xarray and Kerchunk) that are being developed in Python. If you are working exclusively with gzip files though, go give <a href="https://github.com/pauldmccarthy/indexed_gzip">indexed_gzip</a> a try!</p>
-<p>Fixing this data access problem is very important to me, so I decided to take on the task of creating Python bindings for ZRAN using <a href="https://cython.org">Cython</a>. It was my first foray into the intimidating world of pointers and memory management, but I learned a lot and it was worth the effort! I combined the base ZRAN Cython bindings with some additional index manipulation to create what I hope is useful Python library for compressed data extraction. I also created a fair amount of GitHub Actions based CI/CD tooling for the project, which really helps me maintain and publish the package (if you want to hear more about this setup, let me know!).</p>
-<p>To use ZRAN Python library, you need to:</p>
+          <iframe src="https://forrestfwilliams-los-palette.hf.space" frameborder="0" width="900" height="650"></iframe>
+<h1 id="usage">Usage</h1>
+<p>Use the <strong>Satellite Heading</strong> and <strong>Grazing Angle</strong> sliders to adjust the values for these parameters. The graphs will update, and colorbar below will display the color values for your specified satellite orientation. You can also select presets for Sentinel-1, NISAR, and horizontal/vertical orientations.</p>
+<h1 id="the-why">The Why</h1>
+<p>When interpreting deformation measurements created using InSAR, it&rsquo;s important to remember that the deformation measured is always along the SAR satellite&rsquo;s line-of-sight. This means that two SAR satellites looking at the same deformation from different orientations <strong>will make different measurements of the deformation</strong>. When I work with people that are not SAR experts, this subtlely is often a source of confusion and we as a community of SAR experts do not do a great of job of making it easy for them to understand this concept.</p>
+<p>Take for instance the standard way that InSAR results are visualized. For unwrapped interfergograms, motion towards the satellite is portrayed as shades of red, and motion away from the satellite is portrayed as shades of blue. If you have InSAR data from an ascending and descending pass of the same satellite, and the motion is predominatley horizontal, areas that are red in one image will be blue in the other. If you&rsquo;re not paying attention to the line-of-sight information, <strong>it will look like the two InSAR images are describing very different motions!</strong></p>
+<p>If we know that this visualization approach is ripe for misinterpretation, why are we using it!? Are there better ways we could visualize the data?</p>
+<h1 id="how-it-works">How It Works</h1>
+<p>To solve this issue, I&rsquo;d like to propose a new convention for visualizing InSAR deformation results that is codified in the app at the beginning of this post. This method alleviates many of the issues associated with the traditional approach while still producing beautiful maps. It does this by encoding information about the line-of-sight into the colorscheme!</p>
+<p>A satellite&rsquo;s line-of-sight can be described by a unit vector that has x, y and z components. Conveniently, digital colors are created by red, blue and green (RGB) components. What if we could define a relationship that would allow us to translate a satellite&rsquo;s line-of-sight unit vector into a unique RGB color? This is exactly what this app accomplishes! The equation for making the transformation is:</p>
+<div>$$Red = (127.5 * x) + 127.5\\Blue = (127.5 * y) + 127.5\\Green = (127.5 * z) + 127.5$$</div>
+<p>Where x, y and z are the line-of-sight unit vector components, and RGB values are rounded to the nearest integer. You&rsquo;ll notice that a unit vector of 0, 0, 0 maps to a RGB value of 128, 128, 128. This ensures that the full range of unit vector values [-1, 1] map to valid RGB values [0, 255]. Below is a visualization of the resulting colorsphere:</p>
+<iframe src="../../los_colorsphere.html" width=900 height=900 title="Color Sphere"></iframe>
+<p>This visualization standard has a few key advantages:</p>
 <ol>
-<li>Create an index for a compressed file</li>
-<li>Optionally save this index</li>
-<li>Use this index to access the data on subsequent reads</li>
+<li>InSAR measurements with different line-of-sights are denoted by different colors, decreasing confusion.</li>
+<li>Colors denoting motion towards and away from a satellite are guaranteed to be complementary colors.</li>
+<li>Measurements from similar positions are similar colors.</li>
+<li>If the conversion equations above are known, an estimate the line-of-sight direction can be derived directly from an InSAR map.</li>
 </ol>
-<p>To create the index:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> zran
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;compressed.gz&#39;</span>, <span style="color:#e6db74">&#39;rb&#39;</span>) <span style="color:#66d9ef">as</span> f:
-</span></span><span style="display:flex;"><span>    compressed_file <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>read()
-</span></span><span style="display:flex;"><span>    index <span style="color:#f92672">=</span> zran<span style="color:#f92672">.</span>Index<span style="color:#f92672">.</span>create_index(compressed_file)
-</span></span></code></pre></div><p>This <code>Index</code> can be written to a file (<code>index.to_file('index.dflidx')</code>), or directly passed to <code>zran.deompress</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>start <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-</span></span><span style="display:flex;"><span>length <span style="color:#f92672">=</span> <span style="color:#ae81ff">2000</span>
-</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> zran<span style="color:#f92672">.</span>decompress(compressed_file, index, start, length)
-</span></span></code></pre></div><p>That&rsquo;s it!</p>
-<h2 id="whats-next-for-zran">What&rsquo;s Next for ZRAN?</h2>
-<p>While ZRAN is already a powerful tool for working with compressed data, I believe that there is much more that can be done with it. By combining ZRAN with other projects such as STAC and kerchunk, it may be possible to create a zarr-like interface for archival datasets! This would allow us to work with large datasets as if they were small, local files, without having to worry about the underlying complexity of the data storage.</p>
-<p>In the meantime, I&rsquo;m already using the ZRAN python package in my <a href="https://github.com/forrestfwilliams/index_safe">Sentinel-1 burst extractor project</a>, which demonstrates its potential to be used in a wide range of applications. If you&rsquo;re interested in trying out ZRAN for yourself, you can install from PyPI today!</p>
+<p>Try it out and let me know what you think! You can find me on Twitter at <a href="https://twitter.com/RS_Forrest">@RS_Forrest</a>, or on <a href="https://www.linkedin.com/in/forrest-williams-geospatial/">LinkedIn</a>. I&rsquo;ve included some presets in the app above so you can try out what Sentinel-1, NISAR, vertical, and horiztonal motion would like using this approach.</p>
 
           </article>
         </div>
@@ -290,13 +279,7 @@ ZRAN | Forrest Williams
                 Table Of Contents
               </h5>
               <div class="toc-content">
-                <nav id="TableOfContents">
-  <ul>
-    <li><a href="#the-problem">The Problem</a></li>
-    <li><a href="#enter-zran">Enter ZRAN</a></li>
-    <li><a href="#whats-next-for-zran">What&rsquo;s Next for ZRAN?</a></li>
-  </ul>
-</nav>
+                <nav id="TableOfContents"></nav>
               </div>
           </aside>
           
@@ -309,17 +292,17 @@ ZRAN | Forrest Williams
             <div class="social-content">
               <ul class="list-inline">
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://twitter.com/share?text=ZRAN&url=https%3a%2f%2fforrestfwilliams.com%2fblogs%2fzran%2f">
+                  <a target="_blank" href="https://twitter.com/share?text=An%20InSAR%20Colorsphere&url=https%3a%2f%2fforrestfwilliams.com%2fblogs%2flos%2f">
                     <i class="fab fa-twitter"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://api.whatsapp.com/send?text=ZRAN: https%3a%2f%2fforrestfwilliams.com%2fblogs%2fzran%2f">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=An%20InSAR%20Colorsphere: https%3a%2f%2fforrestfwilliams.com%2fblogs%2flos%2f">
                     <i class="fab fa-whatsapp"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href='mailto:?subject=ZRAN&amp;body=Check%20out%20this%20site https%3a%2f%2fforrestfwilliams.com%2fblogs%2fzran%2f'>
+                  <a target="_blank" href='mailto:?subject=An%20InSAR%20Colorsphere&amp;body=Check%20out%20this%20site https%3a%2f%2fforrestfwilliams.com%2fblogs%2flos%2f'>
                     <i class="fa fa-envelope"></i>
                   </a>
                 </li>

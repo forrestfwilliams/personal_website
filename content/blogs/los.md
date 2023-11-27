@@ -1,16 +1,40 @@
 ---
-title: "An InSAR Colorsphere"
-date: 2023-08-13T09:30:02-05:00
+title: "Better InSAR Maps"
+date: 2023-11-26T09:30:02-05:00
 draft: false
 author: "Forrest Williams"
-description: "Conceptualizing line-of-sight is hard, let's make it easier"
-toc: 
+description: "Understanding line-of-sight is hard, let's make it easier"
+toc: false
 ---
-## Hello
-Some words
+<iframe src="https://forrestfwilliams-los-palette.hf.space" frameborder="0" width="900" height="650"></iframe>
 
-## Script
-<iframe src="/los_palette_app.html" width=900 height=900 title="Panel App"></iframe>
+# Usage
+Use the **Satellite Heading** and **Grazing Angle** sliders to adjust the values for these parameters. The graphs will update, and colorbar below will display the color values for your specified satellite orientation. You can also select presets for Sentinel-1, NISAR, and horizontal/vertical orientations.
 
-## Another One
-<iframe src="/color_sphere.html" width=900 height=900 title="Color Sphere"></iframe>
+# The Why
+When interpreting deformation measurements created using InSAR, it's important to remember that the deformation measured is always along the SAR satellite's line-of-sight. This means that two SAR satellites looking at the same deformation from different orientations will make different measurements of the deformation. When I work with people that are not SAR experts, this subtlety is often a source of confusion and we as a community of SAR experts do not do a great of job of making it easy for them to understand this concept.
+
+Take for instance the standard way that InSAR results are visualized. For unwrapped interfergograms, motion towards the satellite is portrayed as shades of red, and motion away from the satellite is portrayed as shades of blue. If you have InSAR data from an ascending and descending pass of the same satellite, and the motion is predominatley horizontal, areas that are red in one image will be blue in the other. If you're not paying attention to the line-of-sight information, **it will look like the two InSAR images are describing very different motions!**
+
+If we know that this visualization approach is ripe for misinterpretation, why are we using it!? Are there better ways we could visualize the data?
+
+# How It Works
+To solve this issue, I'd like to propose a new convention for visualizing InSAR deformation results that is codified in the app at the beginning of this post. This method alleviates many of the issues associated with the traditional approach while still producing beautiful maps. It does this by encoding information about the line-of-sight into the colorscheme!
+
+A satellite's line-of-sight can be described by a unit vector that has x, y and z components. Conveniently, digital colors are created by red, blue and green (RGB) components. What if we could define a relationship that would allow us to translate a satellite's line-of-sight unit vector into a unique RGB color? This is exactly what this app accomplishes! The equation for making the transformation is:
+
+<div>$$Red = (127.5 * x) + 127.5\\Blue = (127.5 * y) + 127.5\\Green = (127.5 * z) + 127.5$$</div>
+
+Where x, y and z are the line-of-sight unit vector components, and RGB values are rounded to the nearest integer. You'll notice that a unit vector of 0, 0, 0 maps to a RGB value of 128, 128, 128. This ensures that the full range of unit vector values [-1, 1] map to valid RGB values [0, 255]. Below is a visualization of the resulting color globe:
+
+<iframe src="/los_colorglobe.html" width=800 height=800 title="Color Globe"></iframe>
+
+This visualization standard has a few key advantages:
+1. InSAR measurements with different line-of-sights are denoted by different colors, decreasing confusion.
+1. Colors denoting motion towards and away from a satellite are guaranteed to be complementary colors.
+1. Measurements from similar positions are similar colors.
+1. If the conversion equations above are known, an estimate the line-of-sight direction can be derived directly from an InSAR map.
+
+All the code used to create these tools can be found in this [GitHub repository](https://github.com/forrestfwilliams/los_palette)
+
+Try it out and let me know what you think! You can find me on Twitter at [@RS_Forrest](https://twitter.com/RS_Forrest), or on [LinkedIn](https://www.linkedin.com/in/forrest-williams-geospatial/). I've included some presets in the app above so you can try out what Sentinel-1, NISAR, vertical, and horizontal motion would like using this approach.
