@@ -29,7 +29,7 @@
 
 
 <meta property="og:title" content="Better InSAR Maps" />
-<meta property="og:description" content="Understanding line-of-sight is hard, let&#39;s make it easier" />
+<meta property="og:description" content="Understanding line-of-sight orientation is hard, let&#39;s make it easier" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://forrestfwilliams.com/blogs/los/" /><meta property="article:section" content="blogs" />
 <meta property="article:published_time" content="2023-11-26T09:30:02-05:00" />
@@ -37,7 +37,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Better InSAR Maps"/>
-<meta name="twitter:description" content="Understanding line-of-sight is hard, let&#39;s make it easier"/>
+<meta name="twitter:description" content="Understanding line-of-sight orientation is hard, let&#39;s make it easier"/>
 
 
 <link rel="stylesheet" href="../../bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="../../css/header.css" media="all">
@@ -101,7 +101,7 @@
     }
 </style>
 
-<meta name="description" content="Understanding line-of-sight is hard, let&#39;s make it easier">
+<meta name="description" content="Understanding line-of-sight orientation is hard, let&#39;s make it easier">
 <link rel="stylesheet" href="../../css/single.css">
 
 
@@ -248,16 +248,18 @@ Better InSAR Maps | Forrest Williams
           <article class="page-content  p-2">
           <iframe src="https://forrestfwilliams-los-palette.hf.space" frameborder="0" width="900" height="650"></iframe>
 <h1 id="usage">Usage</h1>
-<p>Use the <strong>Satellite Heading</strong> and <strong>Grazing Angle</strong> sliders to adjust the values for these parameters. The graphs will update, and colorbar below will display the color values for your specified satellite orientation. You can also select presets for Sentinel-1, NISAR, and horizontal/vertical orientations.</p>
+<p>Use the <strong>Satellite Heading</strong> and <strong>Grazing Angle</strong> sliders to adjust the values for these parameters. The graphs will update, and colorbar below will display the color values for your specified satellite orientation. You can also select presets for Sentinel-1, horizontal, and vertical orientations.</p>
 <h1 id="the-why">The Why</h1>
 <p>When interpreting deformation measurements created using InSAR, it&rsquo;s important to remember that the deformation measured is always along the SAR satellite&rsquo;s line-of-sight. This means that two SAR satellites looking at the same deformation from different orientations will make different measurements of the deformation. When I work with people that are not SAR experts, this subtlety is often a source of confusion and we as a community of SAR experts do not do a great of job of making it easy for them to understand this concept.</p>
-<p>Take for instance the standard way that InSAR results are visualized. For unwrapped interfergograms, motion towards the satellite is portrayed as shades of red, and motion away from the satellite is portrayed as shades of blue. If you have InSAR data from an ascending and descending pass of the same satellite, and the motion is predominatley horizontal, areas that are red in one image will be blue in the other. If you&rsquo;re not paying attention to the line-of-sight information, <strong>it will look like the two InSAR images are describing very different motions!</strong></p>
-<p>If we know that this visualization approach is ripe for misinterpretation, why are we using it!? Are there better ways we could visualize the data?</p>
+<p>Take for instance the standard way that InSAR results are visualized. For unwrapped interferograms, motion towards the satellite is portrayed as shades of red, and motion away from the satellite is portrayed as shades of blue. If you have InSAR data from an ascending and descending pass of the same satellite, and the motion is predominately horizontal, areas that are red in one image will be blue in the other. If you&rsquo;re not paying attention to the line-of-sight information, <strong>it will look like the two InSAR images are describing very different motions!</strong></p>
+<p>Here is what this visualization problem looks like with a simple Okada strike-slip fault model, where the fault is oriented East-West:</p>
+<p><img src="../../base_okada.svg" alt="Okada Base Example"></p>
+<p>We know that this visualization approach is ripe for misinterpretation, so why are we using it!? Are there better ways we could visualize the data?</p>
 <h1 id="how-it-works">How It Works</h1>
 <p>To solve this issue, I&rsquo;d like to propose a new convention for visualizing InSAR deformation results that is codified in the app at the beginning of this post. This method alleviates many of the issues associated with the traditional approach while still producing beautiful maps. It does this by encoding information about the line-of-sight into the colorscheme!</p>
 <p>A satellite&rsquo;s line-of-sight can be described by a unit vector that has x, y and z components. Conveniently, digital colors are created by red, blue and green (RGB) components. What if we could define a relationship that would allow us to translate a satellite&rsquo;s line-of-sight unit vector into a unique RGB color? This is exactly what this app accomplishes! The equation for making the transformation is:</p>
 <div>$$Red = (127.5 * x) + 127.5\\Blue = (127.5 * y) + 127.5\\Green = (127.5 * z) + 127.5$$</div>
-<p>Where x, y and z are the line-of-sight unit vector components, and RGB values are rounded to the nearest integer. You&rsquo;ll notice that a unit vector of 0, 0, 0 maps to a RGB value of 128, 128, 128. This ensures that the full range of unit vector values [-1, 1] map to valid RGB values [0, 255]. Below is a visualization of the resulting color globe:</p>
+<p>Where x, y and z are the line-of-sight unit vector components, and RGB values are rounded to the nearest integer. You&rsquo;ll notice that a unit vector of 0, 0, 0 maps to an RGB value of 128, 128, 128. This ensures that the full range of unit vector values [-1, 1] map to valid RGB values [0, 255]. Below is a visualization of the resulting color globe:</p>
 <iframe src="../../los_colorglobe.html" width=800 height=800 title="Color Globe"></iframe>
 <p>This visualization standard has a few key advantages:</p>
 <ol>
@@ -266,8 +268,21 @@ Better InSAR Maps | Forrest Williams
 <li>Measurements from similar positions are similar colors.</li>
 <li>If the conversion equations above are known, an estimate the line-of-sight direction can be derived directly from an InSAR map.</li>
 </ol>
+<h1 id="examples">Examples</h1>
+<p>Once again, here is the standard visualization of simple Okada strike-slip fault model, where the fault is oriented East-West:</p>
+<p><img src="../../base_okada.svg" alt="Okada Base Example"></p>
+<p>And here is the same data visualized with the new colorscheme:</p>
+<p><img src="../../new_okada.svg" alt="Okada New Example"></p>
+<p>Notice how clear it is that the two line-of-sight measurements are communicating different information?</p>
+<p>Now let&rsquo;s look at a case where the two line-of-sight measurements are giving us similar information (i.e., where all of the motion is in the vertical direction). Here is the standard visualization for simple volcanic inflation approximated using a Mogi point source model:</p>
+<p><img src="../../base_mogi.svg" alt="Mogi Base Example"></p>
+<p>Here, the deformation looks exactly the same, even though we know that the two line-of-sight datasets are measuring slightly different motions.</p>
+<p>Here is the same Mogi point source model, but with the new visualization approach:</p>
+<p><img src="../../new_mogi.svg" alt="Mogi New Example"></p>
+<p>Here, the colorscheme makes it clear that we are measuring two similar quantities that are still slightly different - exactly what we would like to see!</p>
+<h1 id="learn-more">Learn More</h1>
 <p>All the code used to create these tools can be found in this <a href="https://github.com/forrestfwilliams/los_palette">GitHub repository</a></p>
-<p>Try it out and let me know what you think! You can find me on Twitter at <a href="https://twitter.com/RS_Forrest">@RS_Forrest</a>, or on <a href="https://www.linkedin.com/in/forrest-williams-geospatial/">LinkedIn</a>. I&rsquo;ve included some presets in the app above so you can try out what Sentinel-1, NISAR, vertical, and horizontal motion would like using this approach.</p>
+<p>Try it out and let me know what you think! You can find me on Twitter at <a href="https://twitter.com/RS_Forrest">@RS_Forrest</a>, or on <a href="https://www.linkedin.com/in/forrest-williams-geospatial/">LinkedIn</a>. I&rsquo;ve included some presets in the app above so you can try out what Sentinel-1, vertical, and horizontal motion would like using this approach.</p>
 
           </article>
         </div>
@@ -365,7 +380,7 @@ Better InSAR Maps | Forrest Williams
                         <h5 class="card-title bg-transparent" title="Better InSAR Maps">Better InSAR Maps</h5>
                     </a>
                     <div class="card-text secondary-font">
-                        <p>Usage Use the Satellite Heading and Grazing Angle sliders to adjust the values for these parameters. The graphs will update, and colorbar below will display the color values for your specified satellite orientation. You can also select presets for Sentinel-1, NISAR, and horizontal/vertical …</p>
+                        <p>Usage Use the Satellite Heading and Grazing Angle sliders to adjust the values for these parameters. The graphs will update, and colorbar below will display the color values for your specified satellite orientation. You can also select presets for Sentinel-1, horizontal, and vertical orientations. …</p>
                     </div>
                 </div>
                 <div class="mt-auto card-footer">

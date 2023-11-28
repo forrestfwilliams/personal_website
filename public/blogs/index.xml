@@ -13,7 +13,7 @@
       <pubDate>Sun, 26 Nov 2023 09:30:02 -0500</pubDate>
       
       <guid>https://forrestfwilliams.com/blogs/los/</guid>
-      <description>Usage Use the Satellite Heading and Grazing Angle sliders to adjust the values for these parameters. The graphs will update, and colorbar below will display the color values for your specified satellite orientation. You can also select presets for Sentinel-1, NISAR, and horizontal/vertical orientations.
+      <description>Usage Use the Satellite Heading and Grazing Angle sliders to adjust the values for these parameters. The graphs will update, and colorbar below will display the color values for your specified satellite orientation. You can also select presets for Sentinel-1, horizontal, and vertical orientations.
 The Why When interpreting deformation measurements created using InSAR, it&amp;rsquo;s important to remember that the deformation measured is always along the SAR satellite&amp;rsquo;s line-of-sight. This means that two SAR satellites looking at the same deformation from different orientations will make different measurements of the deformation.</description>
     </item>
     
