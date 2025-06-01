@@ -6,10 +6,10 @@ author: "Forrest Williams"
 description: "Understanding line-of-sight orientation is hard, let's make it easier"
 toc: false
 ---
-<iframe src="https://forrestfwilliams-los-palette.hf.space" frameborder="0" width="900" height="650"></iframe>
-
 # Usage
 Use the **Satellite Heading** and **Grazing Angle** sliders to adjust the values for these parameters. The graphs will update, and colorbar below will display the color values for your specified satellite orientation. You can also select presets for Sentinel-1, horizontal, and vertical orientations.
+
+<iframe src="https://forrestfwilliams-los-palette.hf.space" frameborder="0" width="900" height="650"></iframe>
 
 # The Why
 When interpreting deformation measurements created using InSAR, it's important to remember that the deformation measured is always along the SAR satellite's line-of-sight. This means that two SAR satellites looking at the same deformation from different orientations will make different measurements of the deformation. When I work with people that are not SAR experts, this subtlety is often a source of confusion and we as a community of SAR experts do not do a great of job of making it easy for them to understand this concept.
@@ -27,7 +27,11 @@ To solve this issue, I'd like to propose a new convention for visualizing InSAR 
 
 A satellite's line-of-sight can be described by a unit vector that has x, y and z components. Conveniently, digital colors are created by red, blue and green (RGB) components. What if we could define a relationship that would allow us to translate a satellite's line-of-sight unit vector into a unique RGB color? This is exactly what this app accomplishes! The equation for making the transformation is:
 
-<div>$$Red = (127.5 * x) + 127.5\\Blue = (127.5 * y) + 127.5\\Green = (127.5 * z) + 127.5$$</div>
+Red = (127.5 * x) + 127.5
+
+Blue = (127.5 * y) + 127.5
+
+Green = (127.5 * z) + 127.5
 
 Where x, y and z are the line-of-sight unit vector components, and RGB values are rounded to the nearest integer. You'll notice that a unit vector of 0, 0, 0 maps to an RGB value of 128, 128, 128. This ensures that the full range of unit vector values [-1, 1] map to valid RGB values [0, 255]. Below is a visualization of the resulting color globe:
 
