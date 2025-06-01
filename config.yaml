@@ -121,9 +121,9 @@ params:
     enable: true
     intro: "Hi, my name is"
     title: "Forrest"
-    subtitle: "I use SAR satellites to monitor the earth"
+    subtitle: "I use SAR satellites to monitor the Earth"
     content: ""
-    image: /index/me_bw.jpg 
+    image: /index/me_bw.jpg
     bottomImage:
       enable: true
     # roundImage: true # Make hero image circular | default false
@@ -151,9 +151,9 @@ params:
     title: "About Me"
     image: /index/me_bw.jpg
     content: |-
-      I am a research software engineer with a passion for planet-scale earth monitoring. I have PhD in Geology, as well as a background in SAR remote sensing, Python scientific software development, and cloud-computing infrastructure.
+      I am a research software engineer with a passion for planet-scale earth monitoring. I have a PhD in Geology, as well as a background in SAR remote sensing, Python scientific software development, and cloud-computing infrastructure.
 
-      I currently work at the [Alaska Satellite Facility](https://asf.alaska.edu), where I help create new SAR/InSAR products, and lead SAR trainings for the scientific community.
+      I currently work at the [Alaska Satellite Facility](https://asf.alaska.edu), where I help create new SAR products and services
     skills:
       enable: true
       title: "Here are a few technologies I've been working with recently:"
@@ -168,7 +168,7 @@ params:
     enable: true
     # title: "Custom Name"
     items:
-      - job: "Research Software Developer"
+      - job: "Senior Research Software Engineer"
         company: "ASF"
         companyUrl: "https://asf.alaska.edu/about-asf/"
         date: "April 2022 - present"
@@ -178,11 +178,12 @@ params:
           enable: true
           name: "View sample project"
           url: "https://github.com/asfhyp3/hyp3-isce2"
-        content: "I am currently working as a research software engineer at the Alaska Satellite Facility. I work within a dedicated software engineering team to design new SAR/InSAR products and services. This includes:
-          \n- Leading the development of ASF's burst InSAR processing workflows
-          \n- Developing cloud infrastructure and processing workflows for SAR imagery products
-          \n- Leading tutorials and presentation for the scientific community on SAR data usage
-          \n- Writing and participating in global-scale earth monitoring NASA grant projects
+        content: "I am currently working as a research software engineer at the Alaska Satellite Facility. I work within a dedicated software engineering team to design new SAR products and services. This includes:
+          \n- Leading the development of [ASF's Displacement Portal](https://displacement.asf.alaska.edu)
+          \n- Leading the development of ASF's Sentinel-1 burst offerings
+          \n- Developing [MultiRTC](https://github.com/forrestfwilliams/multirtc), a Python pacakge for mulit-mission RTC processing
+          \n- Participating in NASA Disaster's disaster response activities
+          \n- Leading tutorials and workshops on SAR data usage for the scientific community
           "
       - job: "SAR and InSAR Intern"
         company: "JPL"
@@ -190,10 +191,10 @@ params:
         date: "May 2019 - April 2022"
         info:
           enable: False
-        content: "While I was a graduate student, I interned remotely with NASA Jet Propulsion Laboratory (JPL) team. This work included:
+        content: "While I was a graduate student, I interned with at the Jet Propulsion Laboratory (JPL). This work included:
           \n- Used open-source InSAR tools and UAVSAR data to track fault and landslide movement across California
           \n- Developed UAVSAR time-series processing workflows that were used as the basis for NISAR validation product creation
-          \n- Explore multi-stage InSAR unwrapping algorithms using SNAPHU
+          \n- Explored multi-stage InSAR unwrapping algorithms using SNAPHU
           "
       - job: "Remote Sensing Data Scientist"
         company: "ISU"
