@@ -12,7 +12,6 @@ outputs:
     - "HTML"
     - "RSS"
 
-Paginate: 3
 enableRobotsTXT: true
 # disqusShortname: forrestfwilliams
 # googleAnalytics: G-FRMGYFYWXT
