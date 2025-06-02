@@ -1,0 +1,15 @@
+version: 1
+frontend:
+  phases:
+    install:
+      commands:
+        - npm install -g hugo
+    build:
+      commands:
+        - hugo
+  artifacts:
+    baseDirectory: public
+    files:
+      - '**/*'
+  cache:
+    paths: []
