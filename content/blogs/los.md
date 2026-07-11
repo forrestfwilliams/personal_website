@@ -4,6 +4,7 @@ date: 2023-11-26T09:30:02-05:00
 draft: false
 author: "Forrest Williams"
 description: "Understanding line-of-sight orientation is hard, let's make it easier"
+tags: ["blog"]
 toc: false
 ---
 # Usage

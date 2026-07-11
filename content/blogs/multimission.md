@@ -4,6 +4,7 @@ date: 2025-06-01T00:00:00-05:00
 draft: false
 author: "Forrest Williams"
 description: "Single mission SAR isn't good enough anymore"
+tags: ["blog"]
 toc: 
 ---
 Working at the Alaska Satellite Facility, I get to see all kinds of people working with SAR data - scientists, emergency responders, government officials, and businesses, just to name a few. The diversity of users and use cases is incredible, and the pace of progress in the SAR industry has been just as impressive.

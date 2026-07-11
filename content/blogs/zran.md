@@ -4,6 +4,7 @@ date: 2023-04-13T09:30:02-05:00
 draft: false
 author: "Forrest Williams"
 description: "Random-access reads for deflate data!"
+tags: ["blog"]
 toc: 
 ---
 ## The Problem

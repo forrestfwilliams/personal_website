@@ -30,28 +30,6 @@ Menus:
       title: Blog posts
       url: /blogs
       weight: 1
-    # - identifier: gallery
-    #   name: Gallery
-    #   title: Blog posts
-    #   url: /gallery
-    #   weight: 2
-    #Dropdown menu
-    # - identifier: dropdown
-    #   title: Example dropdown menu
-    #   name: Dropdown
-    #   weight: 3
-    # - identifier: dropdown1
-    #   title: example dropdown 1
-    #   name: example 1
-    #   url: /#
-    #   parent: dropdown
-    #   weight: 1
-    # - identifier: dropdown2
-    #   title: example dropdown 2
-    #   name: example 2
-    #   url: /#
-    #   parent: dropdown
-    #   weight: 2
 
 params:
   title: ""
@@ -138,11 +116,6 @@ params:
           url: https://github.com/forrestfwilliams
         - icon: fab fa-linkedin
           url: https://www.linkedin.com/in/forrest-williams-geospatial/
-        - icon: fab fa-twitter
-          url: https://twitter.com/RS_Forrest
-      # customIcons:
-      #   - icon: /fav.png
-      #     url: "https://example.com"
 
   # About
   about:
@@ -150,65 +123,64 @@ params:
     title: "About Me"
     image: /index/me_bw.jpg
     content: |-
-      I am a research software engineer with a passion for planet-scale earth monitoring. I have a PhD in Geology, as well as a background in SAR remote sensing, Python scientific software development, and cloud-computing infrastructure.
+      I am a Senior Radar Systems Engineer with a passion for expanding what we can do with SAR. I have a PhD in geology and radar remote sensing and am an accomplished software engineer.
 
-      I currently work at the [Alaska Satellite Facility](https://asf.alaska.edu), where I help create new SAR products and services
+      I currently work at [Ursa Space Systems](https://ursaspace.com), where I lead a commercial airborne moving target identification (AMTI) project.
     skills:
       enable: true
       title: "Here are a few technologies I've been working with recently:"
       items:
-        - "Python"
-        - "AWS's serverless stack"
-        - "Cython"
-        - "Jupyter Notebooks"
+        - "Radar signal processing"
+        - "MTI"
+        - "Edge computing"
+        - "Python & C++"
 
-  # Experience
   experience:
     enable: true
     # title: "Custom Name"
     items:
-      - job: "Senior Research Software Engineer"
-        company: "ASF"
+      - company: "Ursa"
+        companyUrl: "https://ursaspace.com"
+        jobs:
+          - name: "Senior Radar Systems Engineer"
+            date: "Nov 2025 - Present"
+            content: "At Ursa I lead a commercial airborne moving target identification (AMTI) project and serve as one of Ursa's primary radar experts. This includes:
+              \n- Leading a commercial airborne moving target identification (AMTI) project
+              \n- Developing cutting-edge SAR signal processing algorithms
+              \n- Developing a Claude Skill for SAR intelligence
+              "
+      - company: "ASF"
         companyUrl: "https://asf.alaska.edu/about-asf/"
-        date: "April 2022 - present"
-        info:
-          enable: false
-        featuredLink:
-          enable: true
-          name: "View sample project"
-          url: "https://github.com/asfhyp3/hyp3-isce2"
-        content: "I am currently working as a research software engineer at the Alaska Satellite Facility. I work within a dedicated software engineering team to design new SAR products and services. This includes:
-          \n- Leading the development of [ASF's Displacement Portal](https://displacement.asf.alaska.edu)
-          \n- Leading the development of ASF's Sentinel-1 burst offerings
-          \n- Developing [MultiRTC](https://github.com/forrestfwilliams/multirtc), a Python pacakge for mulit-mission RTC processing
-          \n- Participating in NASA Disaster's disaster response activities
-          \n- Leading tutorials and workshops on SAR data usage for the scientific community
-          "
-      - job: "SAR and InSAR Intern"
-        company: "JPL"
+        jobs:
+          - name: "Senior Research Software Engineer"
+            date: "Apr 2022 - Oct 2025"
+            content: "At the Alaska Satellite Facility I worked within a dedicated software engineering team to design new SAR products and services. This work included:
+              \n- Developed [MultiRTC](https://github.com/forrestfwilliams/multirtc), a Python pacakge for mulit-mission RTC processing
+              \n- Lead the development of [ASF's Displacement Portal](https://displacement.asf.alaska.edu)
+              \n- Lead the development of ASF's Sentinel-1 burst offerings
+              \n- Participating in NASA Disaster's disaster response activities
+              \n- Lead tutorials and workshops on SAR data usage for the NASA community
+              "
+      - company: "JPL"
         companyUrl: "https://www.jpl.nasa.gov"
-        date: "May 2019 - April 2022"
-        info:
-          enable: False
-        content: "While I was a graduate student, I interned with at the Jet Propulsion Laboratory (JPL). This work included:
-          \n- Used open-source InSAR tools and UAVSAR data to track fault and landslide movement across California
-          \n- Developed UAVSAR time-series processing workflows that were used as the basis for NISAR validation product creation
-          \n- Explored multi-stage InSAR unwrapping algorithms using SNAPHU
-          "
-      - job: "Remote Sensing Data Scientist"
-        company: "ISU"
+        jobs:
+          - name: "Signal Processing Intern"
+            date: "May 2019 - April 2022"
+            content: "While I was a graduate student, I interned with at the Jet Propulsion Laboratory (JPL). This work included:
+              \n- Used open-source InSAR tools and UAVSAR data to track fault and landslide movement across California
+              \n- Developed UAVSAR time-series processing workflows that were used as the basis for NISAR validation product creation
+              \n- Explored multi-stage InSAR unwrapping algorithms using SNAPHU
+              "
+      - company: "ISU"
         companyUrl: "https://www.iastate.edu"
-        date: "May 2019 - April 2022"
-        featuredLink:
-          enable: true
-          name: "View Recent News"
-          url: "https://www.cals.iastate.edu/inrc/research-helps-develop-remote-sensing-tool-assess-conservation-implementation"
-        info:
-          enable: False
-        content: "While pursuing my PhD, I worked part-time as a remote sensing data scientist at Iowa State University. This work included:
-          \n- Built a machine learning model to facilitate the prediction of U.S. crop residue cover
-          \n- Designed image processing workflows within Google Earth Engine
-          "
+        jobs:
+          - name: "Remote Sensing Data Scientist"
+            date: "May 2019 - April 2022"
+            content: "While pursuing my PhD, I worked part-time as a remote sensing data scientist at Iowa State University. This work included:
+              \n- Built a machine learning model to facilitate the prediction of U.S. crop residue cover measurement
+              \n- Designed image processing workflows within Google Earth Engine
+              "
+
   # Education
   education:
     enable: true
@@ -265,66 +237,29 @@ params:
 
   # projects
   projects:
-    enable: false
-    # title: "Custom Name"
+    enable: true
+    title: "Open-Source Projects"
     items:
-      - title: Hugo Profile
-        content: A highly customizable and mobile first Hugo template for personal portfolio and blog.
-        image: /images/projects/profile.png
+      - title: MultiRTC
+        content: I'm the creator and lead developer of MultiRTC. A python library for creating ISCE3-based RTCs for all modern SAR missions (eventually).
+        image: /multirtc_badge.png
         featured:
-          name: Demo
-          link: https://hugo-profile.netlify.app
+          name: Code
+          link: https://github.com/multisar/multirtc 
         badges:
-          - "Hugo"
-          - "Bootstrap"
-          - "Javascript"
-        links:
-          - icon: fa fa-envelope
-            url: mailto:?subject=Hugo%20Profile%20Template&body=Check%20it%20out:%20https%3a%2f%2fhugo-profile.netlify.app%2fblog%2fmarkdown-syntax%2f
-          - icon: fab fa-github
-            url: https://github.com/gurusabarish/hugo-profile
-          - icon: fab fa-twitter
-            url: https://twitter.com/intent/tweet?text=Check+it+out:&url=https%3A%2F%2Fgithub.com%2Fgurusabarish%2Fhugo-profile
-
-      - title: Image Converter
-        content: A web app to convert image to pdf, png to jpg, png to jpg and png to webp without database using django.
-        image: /images/projects/converter.jpg
-        featured:
-          name: Demo
-          link: https://django-converter.herokuapp.com
-        badges:
-          - "Django"
-          - "Bootstrap"
+          - "SAR"
+          - "Multi-Mission"
+          - "Terrain Correction"
         links:
           - icon: fab fa-github
-            url: https://github.com/gurusabarish/converter
-
-      - title: Hugo Profile V2
-        content: A clean and simple Hugo template for personal portfolio and blog.
-        image: /images/projects/profile2.jpg
-        featured:
-          name: Demo V2
-          link: https://hugo-profile-2.netlify.app
-        badges:
-          - "Hugo"
-          - "Bootstrap"
-          - "Javascript"
-        links:
-          - icon: fab fa-github
-            url: https://github.com/gurusabarish/HugoProfileV2
+            url: https://github.com/multisar/multirtc
 
   #Contact
   contact:
     enable: true
-    #title: "Custom name"
     content: My inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!
-    email: ffwilliams2@alaska.edu
+    email: forrestfwilliams@icloud.com
     btnName: E-Mail me
-    # formspree:
-    #   enable: true # `contact.email` value will be ignored
-    #   formId: abcdefgh # Take it from your form's endpoint, like 'https://formspree.io/f/abcdefgh'
-    #   emailCaption: "Enter your email address"
-    #   messageCaption: "Enter your message here"
 
   footer:
     recentPosts:
@@ -336,7 +271,6 @@ params:
     socialNetworks:
       github: https://github.com/forrestfwilliams
       linkedin: https://www.linkedin.com/in/forrest-williams-geospatial/
-      twitter: https://twitter.com/RS_Forrest
 
   # List pages like blogs and posts
   listPages:
