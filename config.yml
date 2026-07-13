@@ -128,9 +128,10 @@ params:
       I currently work at [Ursa Space Systems](https://ursaspace.com), where I lead a commercial airborne moving target identification (AMTI) project.
     skills:
       enable: true
-      title: "Here are a few technologies I've been working with recently:"
+      title: "My Technical Focus:"
       items:
         - "Radar signal processing"
+        - "AI-driven SAR analysis"
         - "MTI"
         - "Edge computing"
         - "Python & C++"

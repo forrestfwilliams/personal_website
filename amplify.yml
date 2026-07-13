@@ -1,8 +1,8 @@
 version: 1
 env:
   variables:
-    # Explicitly set a modern version here (no "v" prefix)
-    HUGO_VERSION: 0.140.0 
+    # See https://github.com/gohugoio/hugo/releases for latest version
+    HUGO_VERSION: 0.164.0
 frontend:
   phases:
     preBuild:
@@ -13,7 +13,6 @@ frontend:
         - rm -rf hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz
     build:
       commands:
-        # This will now successfully run using Hugo Extended v0.140.0
         - hugo
   artifacts:
     baseDirectory: public
