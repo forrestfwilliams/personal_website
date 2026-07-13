@@ -2,7 +2,7 @@ version: 1
 env:
   variables:
     # See https://github.com/gohugoio/hugo/releases for latest version
-    HUGO_VERSION: 0.164.0
+    HUGO_VERSION: 0.140.0
 frontend:
   phases:
     preBuild:
