@@ -144,8 +144,8 @@ params:
         jobs:
           - name: "Senior Radar Systems Engineer"
             date: "Nov 2025 - Present"
-            content: "At Ursa I lead a commercial airborne moving target identification (AMTI) project and serve as one of Ursa's primary radar experts. This includes:
-              \n- Leading a commercial airborne moving target identification (AMTI) project
+            content: "At Ursa I co-lead a commercial airborne moving target identification (AMTI) project and serve as one of Ursa's primary radar experts. This includes:
+              \n- Co-leading a commercial airborne moving target identification (AMTI) project
               \n- Developing cutting-edge SAR signal processing algorithms
               \n- Developing a Claude Skill for SAR intelligence
               "

@@ -1,11 +1,19 @@
 version: 1
+env:
+  variables:
+    # Explicitly set a modern version here (no "v" prefix)
+    HUGO_VERSION: 0.140.0 
 frontend:
   phases:
-    install:
+    preBuild:
       commands:
-        - npm install -g hugo
+        - wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz
+        - tar -xf hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz hugo
+        - mv hugo /usr/local/bin/hugo
+        - rm -rf hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz
     build:
       commands:
+        # This will now successfully run using Hugo Extended v0.140.0
         - hugo
   artifacts:
     baseDirectory: public
