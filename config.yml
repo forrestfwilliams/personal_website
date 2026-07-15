@@ -125,7 +125,7 @@ params:
     content: |-
       I am a Senior Radar Systems Engineer with a passion for expanding what we can do with SAR. I have a PhD in geology and radar remote sensing and am an accomplished software engineer.
 
-      I currently work at [Ursa Space Systems](https://ursaspace.com), where I lead a commercial airborne moving target identification (AMTI) project.
+      I currently work at [Ursa Space Systems](https://ursaspace.com), where I co-lead a commercial airborne moving target identification (AMTI) project.
     skills:
       enable: true
       title: "My Technical Focus:"
